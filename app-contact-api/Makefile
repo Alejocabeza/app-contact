@@ -14,7 +14,7 @@ stop: ## Stop All Containers
 	docker-compose stop
 
 restart: ## Restart All Containers
-	$(MAKE) start && $(MAKE) stop
+	$(MAKE) stop && $(MAKE) start
 
 build: ## Rebuilds all the Containers
 	docker-compose build

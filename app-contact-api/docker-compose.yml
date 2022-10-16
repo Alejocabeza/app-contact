@@ -1,17 +1,35 @@
-version: '3.9'
+version: '3.5'
 
 services:
+    app-contact-db:
+        container_name: app-contact-db
+        image: mongo
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: root
+        ports:
+            - '27017:27017'
+        volumes:
+            - app-contact-db-data:/data/db
+        networks:
+            - app-contact-network
+
     app-contact-api:
         container_name: app-contact-api
         image: node:lts-alpine3.15
         working_dir: /usr/src/app
         ports:
-            - '8000:3000'
+            - '8000:8000'
         tty: true
         volumes:
             - './:/usr/src/app'
+        depends_on:
+            - app-contact-db
         networks:
             - app-contact-network
+
+volumes:
+    app-contact-db-data: {}
 
 networks:
     app-contact-network:
