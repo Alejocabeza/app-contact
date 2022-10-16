@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+    app-contact-app:
+        container_name: app-contact-app
+        image: node:lts-alpine3.15
+        working_dir: /usr/src/app
+        ports:
+            - '3000:3000'
+        tty: true
+        volumes:
+            - './:/usr/src/app'
+        networks:
+            - app-contact-network
+networks:
+    app-contact-network:
+        external: true
