@@ -6,14 +6,13 @@ services:
         image: node:lts-alpine3.15
         working_dir: /usr/src/app
         ports:
-            - "8000:3000"
+            - '8000:3000'
         tty: true
         volumes:
-            - "./:/usr/src/app"
+            - './:/usr/src/app'
         networks:
             - app-contact-network
 
 networks:
     app-contact-network:
-        external:
-            true
+        external: true
