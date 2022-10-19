@@ -25,27 +25,27 @@ prepare: ## Install All Dependecies
 ssh: ## Bash Of Containers
 	docker exec -it app-contact-api sh
 
-api-server: ## Start Server 
+server: ## Start Server 
 	docker exec -it app-contact-api yarn start
 
-api-build: ## Start Build Command
+build: ## Start Build Command
 	docker exec -it app-contact-api yarn build
 
-api-format: ## Start Format Command
+format: ## Start Format Command
 	docker exec -it app-contact-api yarn format:check
 
-api-format-write: ## Start Format Write Command
+format-write: ## Start Format Write Command
 	docker exec -it app-contact-api yarn format:write
 
-api-lint: ## Start Eslint Command
+lint: ## Start Eslint Command
 	docker exec -it app-contact-api yarn lint:check
 
-api-lint-fix: ## Start Eslint Fix Command
+lint-fix: ## Start Eslint Fix Command
 	docker exec -it app-contact-api yarn lint:fix
 
-api-test: ## Start test Watch command
+test: ## Start test Watch command
 	docker exec -it app-contact-api yarn test
 
-api-test-coverage: ## Start test coverage command
+test-coverage: ## Start test coverage command
 	docker exec -it app-contact-api yarn test:coverage
 
