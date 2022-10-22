@@ -1,8 +1,10 @@
+import { AUTHFALSE, AUTHTRUE } from "../Types/auth.type";
+
 export const authReducer = (state = false, action) => {
 	switch (action.type) {
-		case "auth/validate":
-			return (state = true);
-		case "auth/unvalidate":
+		case AUTHTRUE:
+			return (state = action.token);
+		case AUTHFALSE:
 			return (state = false);
 		default:
 			return state;

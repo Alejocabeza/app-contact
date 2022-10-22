@@ -1,3 +1,5 @@
-export const validateAuth = () => ({ type: "auth/validate" });
+import { AUTHFALSE, AUTHTRUE } from "../Types/auth.type";
 
-export const unvalidateAuth = () => ({ type: "auth/unvalidate" });
+export const validateAuth = (token) => ({ type: AUTHTRUE, token });
+
+export const unvalidateAuth = () => ({ type: AUTHFALSE });

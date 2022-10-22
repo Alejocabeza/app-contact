@@ -8,9 +8,20 @@ import {
 	Input,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { validateAuth } from "../Actions/auth.actions";
+import { isTrue } from "../Actions/login.actions";
+import { getUser } from "../Actions/user.actions";
+import { BoxContainers } from "../Components/BoxContainers";
+import { helpHttp } from "../Utils/http.utils";
 
 export const Home = () => {
+	const dispatch = useDispatch();
+	const api = helpHttp();
+	const url = "http://localhost:8000/api/v1/auth/login";
 	const [form, setForm] = useState([]);
+	const history = useHistory();
 
 	const handleChange = (e) => {
 		setForm({
@@ -21,21 +32,24 @@ export const Home = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		const opts = {
+			body: form,
+			headers: {
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			},
+		};
+		const res = await api.post(url, opts);
+		const token = await res.token;
+		const user = await res.user;
+		dispatch(validateAuth(token));
+		dispatch(isTrue());
+		dispatch(getUser(user));
+		history.push("/contact");
 	};
 
 	return (
-		<Box
-			w="100vw"
-			h="88vh"
-			display="flex"
-			flexDirection="column"
-			justifyContent="center"
-			alignItems="center"
-			bgImage="url('https://images.pexels.com/photos/3473569/pexels-photo-3473569.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')"
-			bgPosition="center"
-			bgSize={{ base: "cover", md: "cover" }}
-			bgRepeat="no-repeat"
-		>
+		<BoxContainers>
 			<Box
 				w="50%"
 				h={{ base: "30%", md: "60%" }}
@@ -88,6 +102,6 @@ export const Home = () => {
 					</FormControl>
 				</form>
 			</Box>
-		</Box>
+		</BoxContainers>
 	);
 };
