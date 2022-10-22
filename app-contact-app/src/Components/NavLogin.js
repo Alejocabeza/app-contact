@@ -20,11 +20,11 @@ export const NavLogin = () => {
 			</Flex>
 			<Stack
 				direction={{ base: "column", md: "row" }}
-				display={{ base: "none", md: "flex" }}
+				display={{ base: "flex", md: "flex" }}
 				width="50%"
 				justifyContent="end"
 				flexGrow={1}
-				alignItems="center"
+				alignItems={{ base: "end" }}
 				color="white"
 			>
 				<Link to="/register">Sign In</Link>

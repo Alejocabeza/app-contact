@@ -27,8 +27,8 @@ export const Navbar = () => {
 				maxW={{ base: "100%", md: "100%" }}
 				alignItems="center"
 				justifyContent="space-between"
-				ml={20}
-				mr={20}
+				ml={{ base: 2 }}
+				mr={{ base: 2 }}
 			>
 				{login ? <NavUser /> : <NavLogin />}
 			</Container>

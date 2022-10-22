@@ -1,4 +1,4 @@
-import { AUTHFALSE, AUTHTRUE } from "../Types/auth.type";
+import { AUTHFALSE, AUTHTRUE } from "../Types";
 
 export const validateAuth = (token) => ({ type: AUTHTRUE, token });
 

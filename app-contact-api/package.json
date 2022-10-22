@@ -1,6 +1,6 @@
 {
     "name": "app-contact-api",
-    "version": "0.0.1",
+    "version": "0.0.0",
     "description": "API of app-contact",
     "main": "index.ts",
     "repository": "https://github.com/Alejocabeza/app-contact",

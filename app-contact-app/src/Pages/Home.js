@@ -45,14 +45,14 @@ export const Home = () => {
 		dispatch(validateAuth(token));
 		dispatch(isTrue());
 		dispatch(getUser(user));
-		history.push("/contact");
+		history.push("/profile/show");
 	};
 
 	return (
 		<BoxContainers>
 			<Box
 				w="50%"
-				h={{ base: "30%", md: "60%" }}
+				h={{ base: "50%", md: "60%" }}
 				bgColor="#00000090"
 				borderRadius="10px"
 				display="flex"
@@ -92,7 +92,7 @@ export const Home = () => {
 							</Center>
 							<Button
 								type="submit"
-								colorScheme="gree"
+								colorScheme="green"
 								variant="outline"
 								w="100%"
 							>

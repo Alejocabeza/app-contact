@@ -8,20 +8,10 @@ import {
 	Input,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { validateAuth } from "../Actions/auth.actions";
-import { isTrue } from "../Actions/login.actions";
-import { getUser } from "../Actions/user.actions";
-import { BoxContainers } from "../Components/BoxContainers";
-import { helpHttp } from "../Utils/http.utils";
+import { BoxContainers } from "../../Components/BoxContainers";
 
-export const Register = () => {
-	const dispatch = useDispatch();
-	const api = helpHttp();
-	const url = "http://localhost:8000/api/v1/auth/register";
+export const AddContact = () => {
 	const [form, setForm] = useState([]);
-	const history = useHistory();
 
 	const handleChange = (e) => {
 		setForm({
@@ -30,29 +20,13 @@ export const Register = () => {
 		});
 	};
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		const opts = {
-			body: form,
-			headers: {
-				"Content-Type": "application/json",
-				Accept: "application/json",
-			},
-		};
-		const res = await api.post(url, opts);
-		const token = await res.token;
-		const user = await res.user;
-		dispatch(validateAuth(token));
-		dispatch(isTrue());
-		dispatch(getUser(user));
-		history.push("/contact/show");
-	};
+	const handleSubmit = () => {};
 
 	return (
 		<BoxContainers>
 			<Box
-				w="50%"
-				h={{ base: "30%", md: "60%" }}
+				w="60%"
+				h={{ base: "65%", md: "60%" }}
 				bgColor="#00000090"
 				borderRadius="10px"
 				display="flex"
@@ -62,7 +36,7 @@ export const Register = () => {
 				color="white"
 			>
 				<Heading fontSize="2rem" mb={5}>
-					Sign In
+					Create Contact
 				</Heading>
 				<form onSubmit={handleSubmit}>
 					<FormControl>
@@ -111,7 +85,7 @@ export const Register = () => {
 							</Center>
 							<Button
 								type="submit"
-								colorScheme="gree"
+								colorScheme="green"
 								variant="outline"
 								w="100%"
 							>

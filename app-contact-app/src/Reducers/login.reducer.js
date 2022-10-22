@@ -1,4 +1,4 @@
-import { ISLOGIN, NOTLOGIN } from "../Types/login.type";
+import { ISLOGIN, NOTLOGIN } from "../Types";
 
 export const loginReducer = (state = false, action) => {
 	switch (action.type) {
