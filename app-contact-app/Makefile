@@ -22,23 +22,21 @@ build: ## Rebuilds all the Containers
 prepare: ## Install All Dependecies
 	docker exec -it app-contact-app yarn
 
+start-all: ## Start all the containers
+	$(MAKE) start && $(MAKE) server
+
 ssh: ## Bash Of Containers
 	docker exec -it app-contact-app sh
 
 server: ## Start Server 
-	docker exec -it app-contact-app yarn dev
+	docker exec -it app-contact-app yarn start
 
 build: ## Start Build Command
 	docker exec -it app-contact-app yarn build
 
-format: ## Start Format Command
-	docker exec -it app-contact-app yarn format:check
 
-format-write: ## Start Format Write Command
-	docker exec -it app-contact-app yarn format:write
+format: ## Start Format Write Command
+	docker exec -it app-contact-app yarn prettier
 
 lint: ## Start Eslint Command
-	docker exec -it app-contact-app yarn lint:check
-
-lint-fix: ## Start Eslint Fix Command
-	docker exec -it app-contact-app yarn lint:fix
+	docker exec -it app-contact-app yarn lint
