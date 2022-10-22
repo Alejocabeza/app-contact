@@ -19,6 +19,9 @@ restart: ## Restart All Containers
 build: ## Rebuilds all the Containers
 	docker-compose build
 
+start-all: ## Start all the containers
+	$(MAKE) start && $(MAKE) server
+
 prepare: ## Install All Dependecies
 	docker exec -it app-contact-api yarn
 

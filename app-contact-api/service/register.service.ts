@@ -1,5 +1,6 @@
 import { User } from '../inteface/user.interface'
 import { UserModel } from '../models/user.model'
+import { generateToken } from '../utils/jwt.handle'
 import { passEncrypt } from '../utils/pass.handle'
 
 export const registerService = async (user: User) => {
@@ -8,11 +9,15 @@ export const registerService = async (user: User) => {
 
 	const passhas = await passEncrypt(user.password)
 
-	return await UserModel.create({
+	const newUser = await UserModel.create({
 		name: user.name,
 		email: user.email,
 		phone: user.phone,
 		avatar: user.avatar,
 		password: passhas
 	})
+
+	const token = generateToken(newUser.email);
+
+	return { token, user: newUser }
 }
