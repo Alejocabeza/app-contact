@@ -1,5 +1,4 @@
 import {
-	Box,
 	Button,
 	Center,
 	Flex,
@@ -10,11 +9,9 @@ import {
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { validateAuth } from "../Actions/auth.actions";
-import { isTrue } from "../Actions/login.actions";
-import { getUser } from "../Actions/user.actions";
-import { BoxContainers } from "../Components/BoxContainers";
-import { helpHttp } from "../Utils/http.utils";
+import { getUser, isTrue, validateAuth } from "../Actions";
+import { BoxContainers, BoxModal } from "../Components";
+import { helpHttp } from "../Utils";
 
 export const Home = () => {
 	const dispatch = useDispatch();
@@ -49,17 +46,10 @@ export const Home = () => {
 	};
 
 	return (
-		<BoxContainers>
-			<Box
-				w="50%"
-				h={{ base: "50%", md: "60%" }}
-				bgColor="#00000090"
-				borderRadius="10px"
-				display="flex"
-				flexDirection="column"
-				justifyContent="center"
-				alignItems="center"
-				color="white"
+		<BoxContainers h={{ base: "100vh", md: "78vh" }}>
+			<BoxModal
+				Wopts={{ base: "80%", md: "40%" }}
+				Hopts={{ base: "50%", md: "70%" }}
 			>
 				<Heading fontSize="2rem" mb={5}>
 					Login
@@ -101,7 +91,7 @@ export const Home = () => {
 						</Flex>
 					</FormControl>
 				</form>
-			</Box>
+			</BoxModal>
 		</BoxContainers>
 	);
 };

@@ -1,11 +1,11 @@
 import { Box } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 
-export const BoxContainers = ({ children }) => {
+export const BoxContainers = ({ children, h }) => {
 	return (
 		<Box
 			w="100vw"
-			h="82.1vh"
+			h={h}
 			display="flex"
 			flexDirection="column"
 			justifyContent="center"
@@ -21,5 +21,6 @@ export const BoxContainers = ({ children }) => {
 };
 
 BoxContainers.propTypes = {
-	children: PropTypes.node.isRequired,
+	children: PropTypes.object,
+	h: PropTypes.object,
 };

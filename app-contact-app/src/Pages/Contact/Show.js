@@ -1,30 +1,24 @@
-import { Button } from "@chakra-ui/react";
-import { useEffect } from "react";
+import { Box, Grid, Heading } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { BoxContainers } from "../../Components/BoxContainers";
-import { helpHttp } from "../../Utils/http.utils";
+import { BoxCards, BoxContainers, ButtonEvent } from "../../Components";
+import { utilsOpts } from "../../Utils";
 
 export const ShowContact = () => {
-	// const [contact, setContact] = useState([]);
 	const auth = useSelector((state) => state.auth);
-	const api = helpHttp();
+	const [contact, setContact] = useState([]);
 	const url = "http://localhost:8000/api/v1/contact";
 	const history = useHistory();
+	const opts = utilsOpts(undefined, auth);
 
 	useEffect(() => {
-		const getUser = async (url) => {
-			const opts = {
-				headers: {
-					"Content-Type": "application/json",
-					Accept: "application/json",
-					Authorization: `Bearer ${auth}`,
-				},
-			};
-			const res = await api.get(url, opts);
-			console.log(res);
+		const getContact = async (url) => {
+			const data = await fetch(url, opts);
+			const res = await data.json();
+			setContact(res);
 		};
-		getUser(url);
+		getContact(url);
 	}, []);
 
 	const handleCreate = () => {
@@ -32,14 +26,38 @@ export const ShowContact = () => {
 	};
 
 	return (
-		<BoxContainers>
-			<Button
-				variant="outline"
-				colorScheme="green"
-				onClick={handleCreate}
-			>
-				Add Contact
-			</Button>
+		<BoxContainers h={{ base: "100vh", md: "78vh" }}>
+			{contact.length > 0 ? (
+				<Grid
+					w="100%"
+					h="100%"
+					templateColumns={{
+						base: "repeat(1, 1fr)",
+					}}
+					placeContent="center"
+				>
+					{contact.map((item) => {
+						return <BoxCards key={item.id} data={item} />;
+					})}
+				</Grid>
+			) : (
+				<Box
+					display="flex"
+					justifyContent="center"
+					alignItems="center"
+					flexDir="column"
+					gap={2}
+				>
+					<Heading color="white" fontSize="2rem">
+						Without Contact
+					</Heading>
+					<ButtonEvent
+						content="Add New"
+						color="green"
+						event={handleCreate}
+					/>
+				</Box>
+			)}
 		</BoxContainers>
 	);
 };

@@ -1,8 +1,7 @@
 import { Response } from 'express'
-import { RequestExt } from '../inteface/request.interface'
-import { userGetService } from '../service/userGet.service'
-import { handleResponseError } from '../utils/reponse.error.handle'
-import { handleResponse } from '../utils/response.handle'
+import { RequestExt } from '../inteface'
+import { userGetService } from '../service'
+import { handleResponse, handleResponseError } from '../utils'
 
 export const userGetController = async (req: RequestExt, res: Response) => {
 	try {

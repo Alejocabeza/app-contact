@@ -1,7 +1,6 @@
-import { Auth } from '../inteface/auth.interface'
-import { UserModel } from '../models/user.model'
-import { generateToken } from '../utils/jwt.handle'
-import { passVerified } from '../utils/pass.handle'
+import { Auth } from '../inteface'
+import { UserModel } from '../models'
+import { generateToken, passVerified } from '../utils'
 
 export const loginService = async (auth: Auth) => {
 	const user = await UserModel.findOne({ email: auth.email })

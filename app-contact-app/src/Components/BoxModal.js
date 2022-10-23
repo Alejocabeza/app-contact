@@ -1,12 +1,11 @@
 import { Box } from "@chakra-ui/react";
-import { BoxContainers } from "./BoxContainers";
 import PropTypes from "prop-types";
 
-export const BoxModal = ({ children }) => {
+export const BoxModal = ({ children, Hopts, Wopts }) => {
 	return (
 		<Box
-			w="50%"
-			h={{ base: "50%", md: "60%" }}
+			w={Wopts}
+			h={Hopts}
 			bgColor="#00000090"
 			borderRadius="10px"
 			display="flex"
@@ -14,10 +13,14 @@ export const BoxModal = ({ children }) => {
 			justifyContent="center"
 			alignItems="center"
 			color="white"
-		>{children}</Box>
+		>
+			{children}
+		</Box>
 	);
-}
+};
 
 BoxModal.propTypes = {
-	children: PropTypes.node.isRequired,
+	children: PropTypes.array,
+	Hopts: PropTypes.object,
+	Wopts: PropTypes.object,
 };

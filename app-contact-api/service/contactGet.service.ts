@@ -1,4 +1,7 @@
-import { ContactModel } from '../models/contact.model'
+import { ContactModel } from '../models'
 
-export const contactGetService = async (email: string) =>
+export const contactGetAllService = async (email: string) =>
 	await ContactModel.find({ user: email })
+
+export const contactOneGetService = async (id: string) =>
+	await ContactModel.find({ id })

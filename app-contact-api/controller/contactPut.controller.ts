@@ -1,7 +1,6 @@
 import { Request, Response } from 'express'
-import { contactPutService } from '../service/contactPut.service'
-import { handleResponseError } from '../utils/reponse.error.handle'
-import { handleResponse } from '../utils/response.handle'
+import { contactPutService } from '../service'
+import { handleResponse, handleResponseError } from '../utils'
 
 export const contactPutController = async (req: Request, res: Response) => {
 	try {

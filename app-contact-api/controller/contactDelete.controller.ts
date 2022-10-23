@@ -1,7 +1,6 @@
 import { Request, Response } from 'express'
-import { contactDeleteService } from '../service/contactDelete.service'
-import { handleResponseError } from '../utils/reponse.error.handle'
-import { handleResponse } from '../utils/response.handle'
+import { contactDeleteService } from '../service'
+import { handleResponse, handleResponseError } from '../utils'
 
 export const contactDeleteController = (req: Request, res: Response) => {
 	try {

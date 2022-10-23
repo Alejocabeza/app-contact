@@ -1,8 +1,7 @@
 import { Response } from 'express'
-import { RequestExt } from '../inteface/request.interface'
-import { contactPostService } from '../service/contactPost.service'
-import { handleResponseError } from '../utils/reponse.error.handle'
-import { handleResponse } from '../utils/response.handle'
+import { RequestExt } from '../inteface'
+import { contactPostService } from '../service'
+import { handleResponse, handleResponseError } from '../utils'
 
 export const contactPostController = async (req: RequestExt, res: Response) => {
 	try {

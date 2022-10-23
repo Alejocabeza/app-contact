@@ -32,7 +32,10 @@ export const NavUser = () => {
 			>
 				<Wrap display="flex" justifyContent="center" alignItems="end">
 					<ItemNav>
-						<Link to="/contact/show">Contacts</Link>
+						<Link to="/contact/show">All</Link>
+					</ItemNav>
+					<ItemNav>
+						<Link to="/contact/create">Create</Link>
 					</ItemNav>
 					<ItemNav>
 						<Avatar

@@ -11,7 +11,7 @@ export const InputData = ({ data, name }) => {
 		>
 			<Box
 				h={8}
-				w="60%"
+				w={{ base: "80%", md: "60%" }}
 				border="1px solid white"
 				borderRadius="20px"
 				display="flex"

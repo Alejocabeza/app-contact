@@ -1,0 +1,7 @@
+export * from './login.controller'
+export * from './register.controller'
+export * from './userGet.controller'
+export * from './contactGet.controller'
+export * from './contactPut.controller'
+export * from './contactPost.controller'
+export * from './contactDelete.controller'

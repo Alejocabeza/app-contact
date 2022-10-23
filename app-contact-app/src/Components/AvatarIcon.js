@@ -8,7 +8,7 @@ export const AvatarIcon = ({ name, img }) => {
 			justifyContent="center"
 			alignItems="center"
 			flexDir="column"
-			gap={3}
+			gap={4}
 		>
 			<Avatar name={name} src={img} size="2xl" />
 			<Heading as="h2" fontSize="1.5rem">

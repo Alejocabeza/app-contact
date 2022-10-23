@@ -1,7 +1,6 @@
 import { NextFunction, Response } from 'express'
-import { RequestExt } from '../inteface/request.interface'
-import { verifyToken } from '../utils/jwt.handle'
-import { handleResponse } from '../utils/response.handle'
+import { RequestExt } from '../inteface'
+import { handleResponse, handleResponseError, verifyToken } from '../utils'
 
 export const session = (req: RequestExt, res: Response, next: NextFunction) => {
 	try {
@@ -12,6 +11,6 @@ export const session = (req: RequestExt, res: Response, next: NextFunction) => {
 		req.user = isUser
 		next()
 	} catch (e) {
-		handleResponse(res, 400, 'INVALID_SESSION')
+		handleResponseError(res, 400, 'INVALID_SESSION')
 	}
 }

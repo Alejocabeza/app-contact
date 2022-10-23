@@ -47,7 +47,7 @@ export const Routes = () => {
 				/>
 				<Route
 					exact
-					path="/profile/edit/:id"
+					path="/contact/edit/:id"
 					render={() => {
 						return login ? <EditContact /> : <Redirect to="/" />;
 					}}

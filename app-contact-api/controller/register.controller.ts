@@ -1,7 +1,6 @@
 import { Request, Response } from 'express'
-import { registerService } from '../service/register.service'
-import { handleResponseError } from '../utils/reponse.error.handle'
-import { handleResponse } from '../utils/response.handle'
+import { registerService } from '../service'
+import { handleResponse, handleResponseError } from '../utils'
 
 export const registerCtrl = async (req: Request, res: Response) => {
 	try {

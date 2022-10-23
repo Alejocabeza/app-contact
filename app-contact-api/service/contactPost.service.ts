@@ -1,5 +1,5 @@
-import { Contact } from '../inteface/contact.interface'
-import { ContactModel } from '../models/contact.model'
+import { Contact } from '../inteface'
+import { ContactModel } from '../models'
 
 export const contactPostService = async (
 	userEmail: string,

@@ -2,9 +2,12 @@ import { Box, Button, Flex } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { delUser, isFalse, unvalidateAuth } from "../../Actions";
-import { AvatarIcon } from "../../Components";
-import { InputData } from "../../Components";
-import { BoxContainers } from "../../Components/BoxContainers";
+import {
+	AvatarIcon,
+	BoxContainers,
+	BoxModal,
+	InputData,
+} from "../../Components";
 
 export const ShowProfile = () => {
 	const user = useSelector((state) => state.user);
@@ -20,17 +23,10 @@ export const ShowProfile = () => {
 	};
 
 	return (
-		<BoxContainers>
-			<Box
-				w="80%"
-				h={{ base: "80%", md: "80%" }}
-				bgColor="#00000090"
-				borderRadius="10px"
-				display="flex"
-				flexDirection="column"
-				justifyContent="space-evenly"
-				alignItems="center"
-				color="white"
+		<BoxContainers h={{ base: "100vh", md: "78vh" }}>
+			<BoxModal
+				Wopts={{ base: "80%", md: "40%" }}
+				Hopts={{ base: "50%", md: "85%" }}
 			>
 				<AvatarIcon name={user.name} img={img} />
 				<Box
@@ -38,7 +34,8 @@ export const ShowProfile = () => {
 					display="flex"
 					justifyContent="center"
 					flexDir="column"
-					gap={3}
+					gap={{ base: 4 }}
+					mt={{ base: 2.5 }}
 				>
 					<InputData data={user.email} name="Email" />
 					<InputData data={user.phone} name="Phone" />
@@ -48,6 +45,7 @@ export const ShowProfile = () => {
 					justifyContent="center"
 					alignItems="center"
 					flexDir="row"
+					mt={{ base: 5 }}
 					gap={2}
 				>
 					<Button
@@ -58,7 +56,7 @@ export const ShowProfile = () => {
 						Close Session
 					</Button>
 				</Flex>
-			</Box>
+			</BoxModal>
 		</BoxContainers>
 	);
 };
