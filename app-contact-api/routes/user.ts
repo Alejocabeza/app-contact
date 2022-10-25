@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import { userGetController } from '../controller/userGet.controller'
-import { session } from '../middlewares/session.middleware'
+import { userGetController } from '../controller'
+import { session } from '../middlewares/session'
 
 const router = Router()
 

@@ -1,6 +1,12 @@
 import { Router } from 'express'
-import { contactDeleteController, contactGetAllController, contactGetOneController, contactPostController, contactPutController } from '../controller'
-import { session } from '../middlewares/session.middleware'
+import {
+	contactDeleteController,
+	contactGetAllController,
+	contactGetOneController,
+	contactPostController,
+	contactPutController
+} from '../controller'
+import { session } from '../middlewares/session'
 
 const router = Router()
 

@@ -10,7 +10,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 
 /**
- * api test
+ * API REST
  */
 app.use(router)
 

@@ -1,6 +1,6 @@
 import { NextFunction, Response } from 'express'
-import { RequestExt } from '../inteface'
-import { handleResponse, handleResponseError, verifyToken } from '../utils'
+import { RequestExt } from '../../interface'
+import { handleResponse, handleResponseError, verifyToken } from '../../utils'
 
 export const session = (req: RequestExt, res: Response, next: NextFunction) => {
 	try {
