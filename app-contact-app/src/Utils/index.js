@@ -1,2 +1,2 @@
-export * from "./http.utils";
-export * from "./opts.utils";
+export * from "./http";
+export * from "./opts";

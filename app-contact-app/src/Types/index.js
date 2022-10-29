@@ -1,3 +1,3 @@
-export * from "./auth.type";
-export * from "./login.type";
-export * from "./user.type";
+export * from "./login";
+export * from "./auth";
+export * from "./user";
